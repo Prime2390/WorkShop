@@ -1,5 +1,6 @@
 package ui_tests.pages;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,14 +22,17 @@ public class SingInPage extends BasePage {
     private WebElement loginButton;
 
     public SingInPage enterEmail() {
+        Allure.step("Enter email");
         type(email, PropertyReader.get("email"));
         return this;
     }
     public SingInPage enterPassword() {
+        Allure.step("Enter password");
         type(passowrd, PropertyReader.get("password"));
         return this;
     }
     public Dashboard clickLoginButton() {
+        Allure.step("Click 'login' button");
         this.loginButton.click();
         return new Dashboard(driver);
     }

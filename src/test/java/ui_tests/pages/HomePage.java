@@ -1,5 +1,6 @@
 package ui_tests.pages;
 
+import io.qameta.allure.Allure;
 import org.apache.groovy.json.internal.Exceptions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class HomePage extends BasePage {
     public String getURL = "http://localhost:4200/admin/dashboard";
 
     public SingInPage clickSingInButton() {
+        Allure.step("Click 'sing in' button");
         click(singInButton);
         return new SingInPage(driver);
     }

@@ -2,21 +2,19 @@ package api_tests.tests;
 
 import api_tests.utils.Endpoints;
 import api_tests.utils.RequestSpec;
-import io.qameta.allure.Allure;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.PropertyReader;
-@Epic("API - User")
+@Epic("API")
+@Feature("Authorization and Registration")
 public class User {
 
 
-    @Story("Log in as administrator")
-    @Test(description = "Log in")
+    @Story("Login into application")
+    @Test(description = "Login with valid data")
     @Description("The administrator logs in with the correct email address and password.")
     public void Login() {
 
@@ -34,6 +32,7 @@ public class User {
                 .statusCode(200)
                 .extract().response();
 
+        Allure.addAttachment("Response body", "application/json", res.asPrettyString(), ".json");
         String token = res.path("access_token");
         System.out.println(token);
         Assert.assertEquals(res.statusCode(), 200);
@@ -41,7 +40,7 @@ public class User {
 
     }
     @Story("User create account")
-    @Test(description = "Register")
+    @Test(description = "Register with valid data")
     @Description("The user creates an account by filling in the fields correctly.")
     public void Register() {
       String User = """
