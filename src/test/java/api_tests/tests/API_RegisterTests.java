@@ -1,6 +1,6 @@
 package api_tests.tests;
 
-import api_tests.model.ApiRegisterFaker.FakerRegisterUser;
+import api_tests.model.FakerRegisterUser;
 import api_tests.utils.Endpoints;
 import api_tests.utils.RequestSpec;
 import io.qameta.allure.Description;

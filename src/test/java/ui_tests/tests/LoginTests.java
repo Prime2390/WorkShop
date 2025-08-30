@@ -12,8 +12,6 @@ import ui_tests.pages.HomePage;
 @Feature("Authorization and Registration")
 public class LoginTests extends BaseTest {
 
-
-
     @Story("Login into application")
     @Test(description = "Login with valid data")
     @Description("The user is using the correct email address and password to log in.")

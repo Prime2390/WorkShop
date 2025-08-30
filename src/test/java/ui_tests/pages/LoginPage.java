@@ -5,12 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
 import utils.PropertyReader;
 
-public class SingInPage extends BasePage {
-    public SingInPage(WebDriver driver) {
+public class LoginPage extends BasePage {
+    public LoginPage(WebDriver driver) {
         super(driver);
+        waitUntileExpected(expectedURL);
         PageFactory.initElements(driver, this);
     }
 
@@ -20,13 +20,24 @@ public class SingInPage extends BasePage {
     private WebElement passowrd;
     @FindBy(xpath = "/html/body/app-root/div/app-login/div/div/div/form/div[3]/input")
     private WebElement loginButton;
+    @FindBy(xpath = "/html/body/app-root/div/app-login/div/div/div/div/p/a[1]") private WebElement signInButton;
 
-    public SingInPage enterEmail() {
+   private final String expectedURL = "http://localhost:4200/auth/login";
+
+    public String getExpectedURL() {
+        return expectedURL;
+    }
+
+    public String getCurrentURL() {
+        return driver.getCurrentUrl();
+    }
+
+    public LoginPage enterEmail() {
         Allure.step("Enter email");
         type(email, PropertyReader.get("email"));
         return this;
     }
-    public SingInPage enterPassword() {
+    public LoginPage enterPassword() {
         Allure.step("Enter password");
         type(passowrd, PropertyReader.get("password"));
         return this;
@@ -35,6 +46,12 @@ public class SingInPage extends BasePage {
         Allure.step("Click 'login' button");
         this.loginButton.click();
         return new Dashboard(driver);
+    }
+    public RegisterPage clickSignInButton() {
+        Allure.step("Click 'Register your account' button");
+        click(signInButton);
+        return new RegisterPage(driver);
+
     }
 
 }

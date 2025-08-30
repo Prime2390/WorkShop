@@ -25,7 +25,7 @@ public class BaseTest {
         } else if(browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
-           // chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
         } else if(browser.equalsIgnoreCase("ie")) {
             WebDriverManager.iedriver().setup();

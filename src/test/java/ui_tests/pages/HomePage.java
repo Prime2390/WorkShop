@@ -1,13 +1,10 @@
 package ui_tests.pages;
 
 import io.qameta.allure.Allure;
-import org.apache.groovy.json.internal.Exceptions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.time.Duration;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -18,10 +15,10 @@ public class HomePage extends BasePage {
     private WebElement singInButton;
     public String getURL = "http://localhost:4200/admin/dashboard";
 
-    public SingInPage clickSingInButton() {
+    public LoginPage clickSingInButton() {
         Allure.step("Click 'sing in' button");
         click(singInButton);
-        return new SingInPage(driver);
+        return new LoginPage(driver);
     }
 
 }
