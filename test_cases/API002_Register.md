@@ -1,4 +1,4 @@
-# TC002 – Valid registration
+# API002 – Valid registration
 
 
 ## Preconditions
@@ -20,22 +20,10 @@
 | Password      | Polskagurom12     | valid password      |
 
 ## Steps
-1. Open Homepage
-2. Click "***Sign in***" button
-3. Click "***Register your account***"
-4. Enter First name "Dominik"
-5. Enter Last name "Bernaś"
-6. Enter Date of birth "2000.07.03"
-7. Enter Street "Powstańców"
-8. Enter Post code "42-400"
-9. Enter City "Warszawa"
-10. Enter State "Śląsk"
-11. Select Country "Polska"
-12. Enter Phone number "504242241"
-13. Enter Email address "dominik@gmail.com"
-14. Enter Password "Welcome12!"
+1. Perform `POST /users/register` with the correct data
+
 
 
 ### Expected
-- Redirect to `/login`
-- The user sees the login panel
+- Returns status code 201
+- ID has been created.
