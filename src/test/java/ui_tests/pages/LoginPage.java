@@ -21,6 +21,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "/html/body/app-root/div/app-login/div/div/div/form/div[3]/input")
     private WebElement loginButton;
     @FindBy(xpath = "/html/body/app-root/div/app-login/div/div/div/div/p/a[1]") private WebElement signInButton;
+    @FindBy(className = "ForgetPwd") private WebElement forgetPwd;
+    @FindBy(xpath = "//*[@id=\"email-error\"]/div") private WebElement emailError;
+    @FindBy(xpath = "//*[@id=\"password-error\"]/div") private WebElement passwordError;
 
    private final String expectedURL = "http://localhost:4200/auth/login";
 
@@ -51,7 +54,25 @@ public class LoginPage extends BasePage {
         Allure.step("Click 'Register your account' button");
         click(signInButton);
         return new RegisterPage(driver);
-
     }
+    public ForgotPasswordPage clickForgetPasswordButton() {
+        Allure.step("Click 'Forgot your Password?' button");
+        click(forgetPwd);
+        return new ForgotPasswordPage(driver);
+    }
+    public String getEmailError() {
+        waitForVisibility(emailError);
+        return emailError.getText();
+    }
+    public String getPasswordError() {
+        waitForVisibility(passwordError);
+        return passwordError.getText();
+    }
+    public LoginPage clickLoginWithError() {
+        Allure.step("Click 'Login' button");
+        click(loginButton);
+        return this;
+    }
+
 
 }

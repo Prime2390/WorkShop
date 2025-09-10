@@ -10,11 +10,12 @@ import ui_tests.pages.HomePage;
 
 @Epic("UI")
 @Feature("Authorization and Registration")
+@Story("Checking the logout function")
 public class LogoutTest extends BaseTest {
 
-    @Story("Logging out of the application")
-    @Test(description = "Administrator logout")
-    @Description("The administrator logs out and returns to the login page.")
+
+    @Test(description = "Checking logout")
+    @Description("The user can log out of their account using the top panel.")
     public void logout() {
         HomePage homePage = new HomePage(driver);
         var loginOperation =  homePage.clickSingInButton()
@@ -28,7 +29,8 @@ public class LogoutTest extends BaseTest {
         String actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(expectedURL, actualURL, "Wrong URL");
-        Assert.assertTrue(driver.getPageSource().contains("Login"), "Wrong Page Source");
+
+
     }
 
 

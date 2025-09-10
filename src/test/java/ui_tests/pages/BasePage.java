@@ -33,4 +33,7 @@ public class BasePage {
     public void waitUntileExpected(String expectedUrl) {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
     }
+    protected WebElement waitForVisibility(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 }

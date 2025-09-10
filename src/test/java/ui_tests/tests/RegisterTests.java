@@ -10,11 +10,12 @@ import ui_tests.pages.HomePage;
 
 @Epic("UI")
 @Feature("Authorization and Registration")
+@Story("Checking the registration function")
 public class RegisterTests extends BaseTest {
 
-    @Story("New user registration")
-    @Test(description = "Registration with valid data")
-    @Description("")
+
+    @Test(description = "Checking the system behaviour after entering correct data")
+    @Description("The user registers using correct data.")
     public void registrationWithValidData() {
         HomePage homePage = new HomePage(driver);
         var operations = homePage.clickSingInButton()
@@ -31,7 +32,7 @@ public class RegisterTests extends BaseTest {
                 .enterEmail()
                 .enterPassword()
                 .clickRegisterButton();
-        System.out.println(operations.getCurrentURL());
+
 
         Assert.assertEquals(operations.getCurrentURL(),operations.getExpectedURL(), "Wrong URL");
 

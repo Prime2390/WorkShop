@@ -1,10 +1,7 @@
-# TC002 – Valid registration
-
-
-## Preconditions
-
-
-## Test Data
+# SC002 -Checking the registration function
+## TC001 – Checking the system behaviour after entering correct data
+### Preconditions
+### Test Data
 | Key           | Value             | Notes               |
 |---------------|-------------------|---------------------|
 | First name    | Dominik           | valid first name    |
@@ -19,7 +16,7 @@
 | Email address | dominik@gmail.com | valid email address |
 | Password      | Polskagurom12     | valid password      |
 
-## Steps
+### Steps
 1. Open Homepage
 2. Click "***Sign in***" button
 3. Click "***Register your account***"
