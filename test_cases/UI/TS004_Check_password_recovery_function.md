@@ -26,7 +26,7 @@
 |--------------|-------------------------------|---------------|
 | email        | notexistingaccount@gmail.com  | invalid email |
 ### Steps
-1. Open Homepage
+1. Navigate to http://localhost:4200/
 2. Click "***Sign in***" button
 3. Click "***Forgot your Password?***" button
 4. Enter in "***Your email***" "notexistingaccount@gmail.com"
@@ -41,7 +41,7 @@
 ### Preconditions
 ### Test Data
 ### Steps
-1. Open Homepage
+1. Navigate to http://localhost:4200/
 2. Click "***Sign in***" button
 3. Click "***Forgot your Password?***" button
 4. Click "***Set New Password***" button

@@ -13,7 +13,7 @@
 | password     | welcome01                            | valid password    |
 
 ### Steps
-1. Open Homepage
+1. Navigate to http://localhost:4200/
 2. Click "***Sign in***" button
 3. Enter email "***admin@practicesoftwaretesting.com***"
 4. Enter password "***welcome01***"
@@ -32,7 +32,7 @@
 
 
 ### Steps
-1. Open Homepage
+1. Navigate to http://localhost:4200/
 2. Click "***Sign in***" button
 3. Click "***Login***" button
 

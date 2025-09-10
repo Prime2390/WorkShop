@@ -17,7 +17,7 @@
 | Password      | Polskagurom12     | valid password      |
 
 ### Steps
-1. Open Homepage
+1. Navigate to http://localhost:4200/
 2. Click "***Sign in***" button
 3. Click "***Register your account***"
 4. Enter First name "Dominik"
