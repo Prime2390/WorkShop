@@ -1,4 +1,4 @@
-# SC002 – Checking login function (API)
+# API001 – Checking login function (API)
 
 ## TC001 – Check system behavior with valid email and password
 ### Preconditions
