@@ -49,6 +49,10 @@ public String getEmail(){
     String email = firstName.substring(0,3) + lastName.substring(0,3)+ "@gmail.com";
     return email ;
 }
+public String getUncorrectEmail(){
+    String email = firstName.substring(0,3) + lastName.substring(0,3)+ "@gmailcom";
+    return email;
+}
 public String getCountry(){
     return country;
 }
@@ -69,6 +73,42 @@ public String getCountry(){
         user.put("dob", dateOfBirth);
         user.put("password", getPassword());
         user.put("email", getEmail());
+        return user;
+    }
+    public Map<String, Object> userwithoutemail() {
+        Map<String, Object> address = new HashMap<>();
+        address.put("street", street);
+        address.put("city", city);
+        address.put("state", state);
+        address.put("country", country);
+        address.put("postal_code", postalCode);
+
+        Map<String, Object> user = new HashMap<>();
+        user.put("first_name", firstName);
+        user.put("last_name", lastName);
+        user.put("address", address);
+        user.put("phone", String.valueOf(phoneNumber));
+        user.put("dob", dateOfBirth);
+        user.put("password", getPassword());
+        return user;
+    }
+
+    public Map<String, Object> userwithUncorrectEmail() {
+        Map<String, Object> address = new HashMap<>();
+        address.put("street", street);
+        address.put("city", city);
+        address.put("state", state);
+        address.put("country", country);
+        address.put("postal_code", postalCode);
+
+        Map<String, Object> user = new HashMap<>();
+        user.put("first_name", firstName);
+        user.put("last_name", lastName);
+        user.put("address", address);
+        user.put("phone", String.valueOf(phoneNumber));
+        user.put("dob", dateOfBirth);
+        user.put("password", getPassword());
+        user.put("email", getUncorrectEmail());
         return user;
     }
 }

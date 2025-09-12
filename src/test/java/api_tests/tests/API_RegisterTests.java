@@ -12,12 +12,14 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 @Epic("API")
 @Feature("Authorization and Registration")
+@Story("Check registration function")
 public class API_RegisterTests {
-    @Story("User create account")
-    @Test(description = "Register with valid data")
-    @Description("The user creates an account by filling in the fields correctly.")
+
+    @Test(description = "Check system behavior with valid registration data")
     public void Register() {
         var dataUser = new FakerRegisterUser().user();
 
@@ -33,4 +35,41 @@ public class API_RegisterTests {
         Assert.assertEquals(res.statusCode(), 201);
         Assert.assertNotNull(id);
     }
+    @Test(description = "Check registration with existing email")
+    public void userwithExistingEmail() {
+        var dataUser = new FakerRegisterUser().user();
+
+       RestAssured.given().spec(RequestSpec.json())
+                .body(dataUser)
+                .post(Endpoints.REGISTER)
+                .then()
+                .extract().response();
+
+       Response res = RestAssured.given().spec(RequestSpec.json())
+               .body(dataUser)
+               .post(Endpoints.REGISTER)
+               .then()
+               .log().all()
+               .statusCode(422)
+               .extract().response();
+
+        List<String> emailErrors = res.jsonPath().getList("email");
+        String error = emailErrors.get(0);
+
+       Assert.assertEquals(res.statusCode(), 422);
+       Assert.assertEquals(error, "A customer with this email address already exists.");
+    }
+    @Test(description = "Check registration with invalid email format")
+    public void registerWithInvalidEmailFormat() {
+        var dataUser = new FakerRegisterUser().userwithUncorrectEmail();
+
+        Response res = RestAssured.given().spec(RequestSpec.json())
+                .body(dataUser)
+                .post(Endpoints.REGISTER)
+                .then()
+                .log().all()
+                .extract().response();
+
+    }
+
 }
