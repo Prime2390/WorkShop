@@ -40,21 +40,20 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Selenium (bez wersji, bo BOM) -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Rest-Assured (bez wersji, bo BOM) -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- TestNG -->
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -62,7 +61,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Allure (adapter do TestNG) -->
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -70,7 +69,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- (opcjonalnie) prosty logger, wycisza warning SLF4J -->
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -78,7 +77,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- (opcjonalnie) WebDriverManager do driverów przeglądarek -->
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -92,7 +91,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
@@ -109,7 +108,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <!-- używaj testng.xml z resources -->
+
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
@@ -118,23 +117,21 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-            <!-- Testy (TestNG) -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <!-- jeśli używasz testng.xml -->
-                    <!-- <suiteXmlFiles>
-                      <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles> -->
+
+
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
 
-            <!-- (opcjonalnie) Allure plugin do generowania raportów lokalnie -->
+
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
