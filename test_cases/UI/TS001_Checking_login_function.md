@@ -39,3 +39,43 @@
 ### Expected
 - The error ‘Email is required’ is displayed.
 - The error ‘Password is required’ is displayed.
+
+## TC003 - Check the system behevior after entering correct email and incorrect password
+
+### Preconditions
+-User has an accound
+
+### Test Data
+| Key          | Value                              | Notes               |
+|--------------|------------------------------------|---------------------|
+| email        | admin@practicesoftwaretesting.com  | correct admin email |
+| password     | welcome                            | incorrect password  |
+
+### Steps
+1. Navigate to http://localhost:4200/
+2. Click "***Sign in***" button
+3. Enter email "***admin@practicesoftwaretesting.com***"
+4. Enter password "welcome"
+
+### Expected
+-The error 'Invalid email or password' is displayed.
+
+## TC004 - Check the system behevior after entering incorrect email and correct password
+
+### Preconditions
+-User has an accound
+
+### Test Data
+| Key          | Value                               | Notes               |
+|--------------|-------------------------------------|---------------------|
+| email        | dominik@practicesoftwaretesting.com | correct admin email |
+| password     | welcome01                           | incorrect password  |
+
+### Steps
+1. Navigate to http://localhost:4200/
+2. Click "***Sign in***" button
+3. Enter email "***dominik@practicesoftwaretesting.com***"
+4. Enter password "welcome01"
+
+### Expected
+-The error 'Invalid email or password' is displayed.

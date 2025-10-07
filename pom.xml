@@ -12,14 +12,13 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- wersje trzymamy w jednym miejscu -->
         <selenium.version>4.35.0</selenium.version>
         <restassured.version>5.5.6</restassured.version>
         <testng.version>7.11.0</testng.version>
         <allure.version>2.29.0</allure.version>
     </properties>
 
-    <!-- BOM-y stabilizujące wersje -->
+
     <dependencyManagement>
         <dependencies>
             <dependency>

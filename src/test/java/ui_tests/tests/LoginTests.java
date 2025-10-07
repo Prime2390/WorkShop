@@ -42,9 +42,29 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(loginOperation.getEmailError(),"Email is required");
         Assert.assertEquals(loginOperation.getPasswordError(),"Password is required");
 
+    }
+    @Test(description = "Check the system behevior after entering correct email and incorrect password")
+    @Description("The user are using correct email and incorrect password")
+    public void loginWithIncorrectPassword(){
+        HomePage homePage = new HomePage(driver);
+        var loginOperation =  homePage.clickSingInButton()
+                .enterEmail()
+                .enterIncorrectPassword()
+                .clickLoginWithError()
+                        .getLoginErrorMessage();
 
+        Assert.assertEquals(loginOperation, "Invalid email or password");
+    }
+    @Test(description = "Check the system behevior after entering incorrect email and correct password")
+    public void loginWithIncorrectEmail(){
+        HomePage homePage = new HomePage(driver);
+        var loginOperation =  homePage.clickSingInButton()
+                .enterIncorrectEmail()
+                .enterPassword()
+                .clickLoginWithError()
+                .getLoginErrorMessage();
 
-
+        Assert.assertEquals(loginOperation, "Invalid email or password");
 
     }
 }

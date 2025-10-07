@@ -24,6 +24,7 @@ public class LoginPage extends BasePage {
     @FindBy(className = "ForgetPwd") private WebElement forgetPwd;
     @FindBy(xpath = "//*[@id=\"email-error\"]/div") private WebElement emailError;
     @FindBy(xpath = "//*[@id=\"password-error\"]/div") private WebElement passwordError;
+    @FindBy(xpath = "/html/body/app-root/div/app-login/div/div/div/div[2]/div") private WebElement loginError;
 
    private final String expectedURL = "http://localhost:4200/auth/login";
 
@@ -67,11 +68,27 @@ public class LoginPage extends BasePage {
     public String getPasswordError() {
         waitForVisibility(passwordError);
         return passwordError.getText();
+
     }
     public LoginPage clickLoginWithError() {
         Allure.step("Click 'Login' button");
         click(loginButton);
         return this;
+    }
+    public LoginPage enterIncorrectEmail() {
+        Allure.step("Enter incorrect email");
+        type(email,"gmail@gmail.com");
+        return this;
+    }
+    public LoginPage enterIncorrectPassword() {
+        Allure.step("Enter incorrect password");
+        type(passowrd, "welcome");
+        return this;
+    }
+    public String getLoginErrorMessage() {
+        waitForVisibility(loginError);
+        String errorMessage = loginError.getText();
+        return errorMessage;
     }
 
 
