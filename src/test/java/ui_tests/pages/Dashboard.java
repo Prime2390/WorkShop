@@ -17,7 +17,7 @@ public class Dashboard extends BasePage{
 
     @FindBy(id = "menu") private WebElement menu;
     @FindBy(css= "[data-test = 'nav-sign-out']") private WebElement signOut;
-
+    @FindBy(css = "[data-test='nav-admin-products']") private WebElement adminProducts;
 
     public String getUserName() {
         return menu.getText();
@@ -38,6 +38,12 @@ public class Dashboard extends BasePage{
         Allure.step("Click 'Sign Out' button");
         click(signOut);
         return new  LoginPage(driver);
+    }
+    public ProductPage clickAdminProducts() {
+        Allure.step("Click 'Product' button");
+        click(menu);
+        click(adminProducts);
+        return new ProductPage(driver);
     }
 
 
